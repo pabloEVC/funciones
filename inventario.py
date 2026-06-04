@@ -11,6 +11,13 @@ def agregar_producto(productos):
     productos[nombre] = [stock, precio]
     print("Producto agregado exitosamente.")
 
+def mostrar_productos(productos):
+    if not productos:
+        print("El inventario está vacío.")
+        return
+    for nombre, (stock, precio) in productos.items():
+        print(f"Producto: {nombre}, Stock: {stock}, Precio: {precio}")
+
 def buscar_producto(productos):
     nombre = input("Ingrese el nombre del producto a buscar: ").strip()
     if nombre in productos:
@@ -46,7 +53,7 @@ while True:
         case 1: 
             agregar_producto(productos)
         case 2: 
-            print(productos)
+            mostrar_productos(productos)
         case 3: 
             buscar_producto(productos)
         case 4: 
