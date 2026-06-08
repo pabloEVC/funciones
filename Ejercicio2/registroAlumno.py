@@ -1,16 +1,12 @@
-def agregar_alumno(alumnos):
-    nombre = input("Ingrese el nombre del alumno: ")
-    notas = []
-    for i in range(3):
-        nota = float(input(f"Ingrese la nota {i+1}: "))
-        notas.append(nota)
-    alumnos[nombre] = notas
-def mostrar_alumnos
+import funcionesRegistro
 alumnos ={
     "Ana": [5.5, 6.0, 48],
     "Luis": [3.9, 6.8, 7.0],
     "Pedro": [6.5, 6.8, 7.0],
 }
+
+
+
 while True:
     print("1. Agregar alumno")
     print("2. Mostrar alumnos")
@@ -18,17 +14,23 @@ while True:
     print("4. Ver promedio")
     print("5. Cantidad de reprobados")
     print("6. Salir")
-    opcion = int(input("Seleccione una opción: "))
+    while True:
+        try:
+            opcion = int(input("Seleccione una opción: "))
+            break
+        except ValueError:
+            print("Por favor, ingrese un número válido.")
     match opcion:
         case 1:
-            print("Agregar alumno")
+            funcionesRegistro.agregar_alumno(alumnos)
         case 2:
-            print("Mostrar alumnos")
+            funcionesRegistro.mostrar_alumnos(alumnos)
         case 3:            
-            print("Ver promedio")
+            funcionesRegistro.ver_promedio(alumnos)
         case 4:            
-            print("Mejor alumno")
+            funcionesRegistro.mejor_alumno(alumnos)
         case 5:            
-            print("Cantidad de reprobados")
+            funcionesRegistro.cantidad_reprobados(alumnos)
         case 6:            
             print("Salir")
+            break
